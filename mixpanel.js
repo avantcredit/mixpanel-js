@@ -2850,7 +2850,7 @@ Globals should be all caps
 
     MixpanelPeople.prototype._send_request = function(data, callback) {
         data['$token'] = this._get_config('token');
-        data['$distinct_id'] = data["avant_distinct_id"] || this._mixpanel.get_distinct_id();
+        data['$distinct_id'] = localStorage.getItem("avant_distinct_id") || this._mixpanel.get_distinct_id();
 
         var date_encoded_data = _.encodeDates(data)
           , truncated_data    = _.truncate(date_encoded_data, 255)
